@@ -14,4 +14,4 @@ link() {
 
 link "wezterm/.wezterm.lua" ".wezterm.lua"
 link "zsh/.zshrc" ".zshrc"
-link "nvim/.config/nvim" ".config/nvim"
+link "nvim" ".config/nvim"

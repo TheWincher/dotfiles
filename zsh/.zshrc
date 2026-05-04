@@ -48,3 +48,6 @@ alias ls='ls --color'
 
 #Shell integrations
 eval "$(fzf --zsh)"
+
+#Load local zshrc
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
