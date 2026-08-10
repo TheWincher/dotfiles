@@ -46,8 +46,18 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 #Aliases
 alias ls='ls --color'
 
-#Shell integrations
-eval "$(fzf --zsh)"
-
 #Load local zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# bun completions
+[ -s "/home/elouchez/.bun/_bun" ] && source "/home/elouchez/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/home/elouchez/.opencode/bin:$PATH
+export PATH="$PATH:$HOME/Android/Sdk/cmdline-tools/latest/bin:$HOME/Android/Sdk/platform-tools"

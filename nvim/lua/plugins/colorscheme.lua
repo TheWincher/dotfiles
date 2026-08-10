@@ -1,14 +1,18 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
-    name = "kanagawa",
+    "craftzdog/solarized-osaka.nvim",
+    lazy = true,
     priority = 1000,
-    config = function()
-      require("kanagawa").setup({
-        theme = "dragon", -- 👈 IMPORTANT
-        transparent = false,
-      })
-      vim.cmd("colorscheme kanagawa-dragon")
+    opts = function()
+      return {
+        transparent = true,
+      }
     end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "solarized-osaka",
+    },
   },
 }
