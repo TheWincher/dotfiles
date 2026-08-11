@@ -101,6 +101,11 @@
         };
     };
 
+    programs.starship = {
+        enable = true;
+        settings = builtins.fromTOML (builtins.readFile ../starship/starship.toml);
+      }
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
