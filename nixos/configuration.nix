@@ -79,7 +79,27 @@
      neovim
      wget
      git
+     wezterm
+     gcc
+     gnumake
+     rustc
+     cargo
    ];
+
+   fonts.packages = with pkgs; [
+     nerd-fonts.jetbrains-mono
+   ];
+
+
+   programs.git = {
+      enable = true;
+      config = {
+          user.name = "Emmanuel Louchez";
+          user.email = "louchez.emmanuel@gmail.com";
+          init.defaultBranch = "main";
+          pull.rebase = true;
+        };
+    };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -125,5 +145,24 @@
   system.stateVersion = "26.05"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  system.activationScripts.dotfiles = ''
+  	DOTFILES=/home/manu/dotfiles
+
+	#Neovim
+	mkdir -p /home/manu/.config/nvim
+	ln -sf $DOTFILES/nvim/init.lua /home/manu/.config/nvim/init.lua
+	ln -sf $DOTFILES/nvim/lua /home/manu/.config/nvim/lua
+	ln -sf $DOTFILES/nvim/lazy-lock.json /home/manu/.config/nvim/lazy-lock.json
+	ln -sf $DOTFILES/nvim/stylua.toml /home/manu/.config/nvim/stylua.toml
+
+	#WezTerm
+	ln -sf $DOTFILES/wezterm/.wezterm.lua /home/manu/.wezterm.lua
+
+	#Zsh
+	ln -sf $DOTFILES/zsh/.zshrc /home/manu/.zshrc
+
+	chown -R manu:users /home/manu/.config/nvim /home/manu/.wezterm.lua /home/manu/.zshrc
+  '';
 }
 
