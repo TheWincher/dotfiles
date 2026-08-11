@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES_DIR="$HOME/Devs/dotfiles"
 
 link() {
   src="$DOTFILES_DIR/$1"
