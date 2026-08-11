@@ -6,10 +6,11 @@
   };
 
   outputs = { self, nixpkgs, ... }: {
-    nixosConfigurations.monpc = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.home_pc = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        ./nixos/configuration.nix
+        ./configuration.nix
+	/etc/nixos/hardware-configuration.nix
       ];
     };
   };
