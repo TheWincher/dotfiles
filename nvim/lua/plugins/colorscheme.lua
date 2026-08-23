@@ -1,18 +1,20 @@
 return {
   {
-    "craftzdog/solarized-osaka.nvim",
-    lazy = true,
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
-    opts = function()
-      return {
-        transparent = true,
-      }
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        transparent_background = true,
+      })
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "solarized-osaka",
+      colorscheme = "catppuccin",
     },
   },
 }
