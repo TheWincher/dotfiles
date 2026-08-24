@@ -43,6 +43,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 #Aliases
 alias ls='ls --color'
 
+eval "$(starship init zsh)"
+
 #Load local zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
