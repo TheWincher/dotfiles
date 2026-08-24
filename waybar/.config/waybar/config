@@ -1,0 +1,77 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 4,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["bluetooth", "pulseaudio", "network", "cpu", "memory", "battery", "tray"],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "active": "\uf111",
+            "default": "\uf10c"
+        },
+        "persistent-workspaces": {
+            "1": [], "2": [], "3": [], "4": [], "5": []
+        }
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 40,
+        "separate-outputs": true
+    },
+    "clock": {
+        "format": "\uf017  {:%H:%M}",
+        "format-alt": "\uf073  {:%A %d %B %Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "\uf6a9  Muet",
+        "format-icons": {
+            "default": ["\uf026", "\uf027", "\uf028"]
+        },
+        "on-click": "pavucontrol"
+    },
+    "bluetooth": {
+      "format": "\uf294",
+      "format-disabled": "\uf294",
+      "format-connected": "\uf294  {num_connections}",
+      "tooltip-format": "{controller_alias}\t{controller_address}",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "on-click": "blueman-manager"
+    },
+    "network": {
+        "format-wifi": "\uf1eb  {signalStrength}%",
+        "format-ethernet": "\uf6ff  Connecté",
+        "format-disconnected": "\udb82\udd6d  Déconnecté",
+        "tooltip-format": "{ifname} via {gwaddr}"
+    },
+    "cpu": {
+        "format": "\uf2db  {usage}%",
+        "interval": 5
+    },
+    "memory": {
+        "format": "\uf538  {}%",
+        "interval": 5
+    },
+    "battery": {
+        "format": "{icon}  {capacity}%",
+        "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+        "format-charging": "\uf0e7  {capacity}%",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    }
+}
