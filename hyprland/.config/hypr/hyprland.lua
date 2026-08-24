@@ -33,7 +33,7 @@ hl.monitor({
 -- Set programs that you use
 local terminal = "ghostty"
 local fileManager = "dolphin"
-local menu = "hyprlauncher"
+local menu = "wofi --show drun"
 
 -------------------
 ---- AUTOSTART ----
@@ -46,6 +46,7 @@ local menu = "hyprlauncher"
 --
 hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar")
+	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets,ssh,pkcs11")
 end)
 
 -------------------------------
